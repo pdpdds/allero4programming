@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\coll-c">
+      <UniqueIdentifier>{f39a6428-8ecc-4cc2-a074-b655e4621e5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\win32">
+      <UniqueIdentifier>{31b2ed79-8d78-4de4-b078-be65a42696f7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="hanconv.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="main.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="coll-c\array.c">
+      <Filter>소스 파일\coll-c</Filter>
+    </ClCompile>
+    <ClCompile Include="coll-c\common.c">
+      <Filter>소스 파일\coll-c</Filter>
+    </ClCompile>
+    <ClCompile Include="coll-c\deque.c">
+      <Filter>소스 파일\coll-c</Filter>
+    </ClCompile>
+    <ClCompile Include="coll-c\hashset.c">
+      <Filter>소스 파일\coll-c</Filter>
+    </ClCompile>
+    <ClCompile Include="coll-c\hashtable.c">
+      <Filter>소스 파일\coll-c</Filter>
+    </ClCompile>
+    <ClCompile Include="coll-c\list.c">
+      <Filter>소스 파일\coll-c</Filter>
+    </ClCompile>
+    <ClCompile Include="coll-c\pqueue.c">
+      <Filter>소스 파일\coll-c</Filter>
+    </ClCompile>
+    <ClCompile Include="coll-c\queue.c">
+      <Filter>소스 파일\coll-c</Filter>
+    </ClCompile>
+    <ClCompile Include="coll-c\slist.c">
+      <Filter>소스 파일\coll-c</Filter>
+    </ClCompile>
+    <ClCompile Include="coll-c\stack.c">
+      <Filter>소스 파일\coll-c</Filter>
+    </ClCompile>
+    <ClCompile Include="coll-c\treeset.c">
+      <Filter>소스 파일\coll-c</Filter>
+    </ClCompile>
+    <ClCompile Include="coll-c\treetbl.c">
+      <Filter>소스 파일\coll-c</Filter>
+    </ClCompile>
+    <ClCompile Include="hanout.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="win32\util.c">
+      <Filter>소스 파일\win32</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="hanconv.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="hanout.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="win32\util.h">
+      <Filter>소스 파일\win32</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
