@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<fox>
+    <hp>100</hp>
+    <bullet>/assets/bullet.png</bullet>
+    <optional name="weapon">
+        <image>/assets/weapon.png</image>
+        <count>5</count>
+        <bullet>/assets/special_bullet.png</bullet>
+    </optional>
+</fox>
