@@ -7,18 +7,6 @@
 #define SCREEN_WIDTH 640
 #define SCREEN_HEIGHT 480
 
-typedef struct SPRITE
-{
-    int dir, alive;
-    int x, y;
-    int width, height;
-    int xspeed, yspeed;
-    int xdelay, ydelay;
-    int xcount, ycount;
-    int curframe, maxframe, animdir;
-    int framecount, framedelay;
-}SPRITE;
-
 
 #define MAX_PLAYER_SPRITE 12
 #define MAX_COLUMN_SPRITE 8
@@ -108,26 +96,12 @@ void UpdatePlayer()
 
 	if (player->y >= SCREEN_HEIGHT)
 		player->y = SCREEN_HEIGHT;
-	if (player->x > SCREEN_WIDTH - PLAYER_WIDTH)
-		player->x = SCREEN_WIDTH - PLAYER_WIDTH;
-	if (player->x < 0)
-		player->x = 0;
 }
 
 
-void RenderPlayer(BITMAP* buffer)
+void RenderPlayer(BITMAP* buffer, int mapxoff, int mapyoff)
 {
-    int mapxoff = player->x + player->width / 2 - SCREEN_WIDTH / 2 + 10;
-    int mapyoff = player->y + player->height / 2 - SCREEN_HEIGHT / 2 + 10;
-
-    //avoid moving beyond the map edge
-    if (mapxoff < 0) mapxoff = 0;
-    if (mapxoff > (mapwidth * mapblockwidth - SCREEN_WIDTH))
-        mapxoff = mapwidth * mapblockwidth - SCREEN_WIDTH;
-    if (mapyoff < 0)
-        mapyoff = 0;
-    if (mapyoff > (mapheight * mapblockheight - SCREEN_HEIGHT))
-        mapyoff = mapheight * mapblockheight - SCREEN_HEIGHT;
+    
 
     //draw the player's sprite
     if (facing)

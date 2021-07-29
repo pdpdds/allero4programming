@@ -6,6 +6,7 @@
 #define SCREEN_HEIGHT 480
 
 BITMAP* buffer;
+
 int mapxoff = 0, mapyoff = 0; //오프스크린을 위한 x, y 좌표
 
 int main(void)
@@ -39,6 +40,19 @@ int main(void)
 			break;
 		}
 
+		
+		mapxoff = player->x + player->width / 2 - SCREEN_WIDTH / 2 + 10;
+		mapyoff = player->y + player->height / 2 - SCREEN_HEIGHT / 2 + 10;
+
+		//avoid moving beyond the map edge
+		if (mapxoff < 0) mapxoff = 0;
+		if (mapxoff > (mapwidth * mapblockwidth - SCREEN_WIDTH))
+			mapxoff = mapwidth * mapblockwidth - SCREEN_WIDTH;
+		if (mapyoff < 0)
+			mapyoff = 0;
+		if (mapyoff > (mapheight * mapblockheight - SCREEN_HEIGHT))
+			mapyoff = mapheight * mapblockheight - SCREEN_HEIGHT;
+
 		UpdatePlayer();
 
 		//백그라운드 타일을 먼저 그린다.
@@ -46,9 +60,7 @@ int main(void)
 		//포그라운드 타일을 그린다.
 		MapDrawFG(buffer, mapxoff, mapyoff, 0, 0, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1, 0);
 
-
-
-		RenderPlayer(buffer);
+		RenderPlayer(buffer, mapxoff, mapyoff);
 
 		//화면버퍼에 블리팅한다.
 		vsync();
