@@ -66,7 +66,7 @@ void UpdatePlayer()
     }
     else player->curframe = 0;
 
-    //handle jumping
+    //점프로직 처리
     if (jump == JUMPIT)
     {
         if (!collided(player->x + player->width / 2,
@@ -98,12 +98,10 @@ void UpdatePlayer()
 		player->y = SCREEN_HEIGHT;
 }
 
-
+//플레이어 스프라이트를 그린다.
 void RenderPlayer(BITMAP* buffer, int mapxoff, int mapyoff)
 {
     
-
-    //draw the player's sprite
     if (facing)
         draw_sprite(buffer, player_image[player->curframe],
             (player->x - mapxoff), (player->y - mapyoff + 1));

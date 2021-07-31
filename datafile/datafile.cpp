@@ -1,6 +1,6 @@
 ﻿#include <allegro.h>
 #include <stdlib.h> 
-
+#include "image.h"
 
 volatile long g_speed_counter = 0; //속도 카운터
 
@@ -55,8 +55,8 @@ int main(int argc, char* argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	BITMAP* imagePlane1 = (BITMAP*)pdatafile[0].dat; //첫번째 오브젝트를 위한 이미지
-	BITMAP* imagePlane2 = (BITMAP*)pdatafile[1].dat; //두번째 오브젝트를 위한 이미지
+	BITMAP* imagePlane1 = (BITMAP*)pdatafile[sample_image1].dat; //첫번째 오브젝트를 위한 이미지
+	BITMAP* imagePlane2 = (BITMAP*)pdatafile[sample_image2].dat; //두번째 오브젝트를 위한 이미지
 
 	if (imagePlane1 == NULL || imagePlane2 == NULL)
 	{

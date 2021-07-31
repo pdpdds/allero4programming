@@ -6,7 +6,6 @@
 #define SCREEN_HEIGHT 480
 
 BITMAP* buffer;
-
 int mapxoff = 0, mapyoff = 0; //오프스크린을 위한 x, y 좌표
 
 int main(void)
