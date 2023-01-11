@@ -4,4 +4,5 @@
 
 
 ## 레퍼런스
-[알레그로4 매뉴얼](http://www.allegro.free.fr/onlinedocs/en/index014.html)  
+* [알레그로4 문서](https://liballeg.org/docs.html)
+* [알레그로4 스프라이트 API](http://www.allegro.free.fr/onlinedocs/en/index014.html)  
