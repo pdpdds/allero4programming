@@ -7,17 +7,15 @@
 #include "sparker.h"
 #include <stdio.h>
 
-int random()
-{
-	return rand();
-}
-
-
-
 #ifdef _WIN32
 #include <synchapi.h>
 #include <conio.h>
 #endif
+
+int random()
+{
+	return rand();
+}
 
 BITMAP* page1, * page2;
 
@@ -25,7 +23,6 @@ DATAFILE* gamedata;
 DATAFILE* stagedata;
 
 void GameEnd();
-
 
 int game_roop;
 int game_roop_switch;
@@ -369,7 +366,7 @@ void draw_title_fire()
 		address = bmp_read_line(page2, y + 1);
 
 #if _WIN32		
-		memcpy(temp, address , SCREEN_W);
+		memcpy(temp, (unsigned char*)address , SCREEN_W);
 #else
 		movedata(page2->seg, address, _my_ds(), (unsigned)temp, SCREEN_W);
 #endif
@@ -381,7 +378,7 @@ void draw_title_fire()
 
  		address = bmp_write_line(page2, y);
 #if _WIN32		
-		memcpy(address, (void*)temp, SCREEN_W);
+		memcpy((void*)address, (void*)temp, SCREEN_W);
 #else
 		movedata(_my_ds(), (unsigned)temp, page2->seg, address, SCREEN_W);
 #endif
@@ -466,14 +463,11 @@ void draw_title()
 
 void openning()
 {
-	int i;
-	char* argv[1];
-
 	allegro_init();
 	install_keyboard();
 	install_timer();
 
-	if (install_sound(DIGI_AUTODETECT, MIDI_AUTODETECT, argv[0]) != 0) {
+	if (install_sound(DIGI_AUTODETECT, MIDI_AUTODETECT, "A") != 0) {
 		printf("\nError initialising sound\n%s\n\n", allegro_error);
 		exit(1);
 	}
@@ -576,6 +570,9 @@ void control_game_roop_speed()
 		game_roop_speed = 1;
 	if (game_roop_speed > 256)
 		game_roop_speed = 256;
+
+	LOCK_VARIABLE(game_roop_switch);
+	LOCK_FUNCTION(control_game_roop);
 
 	install_int_ex(control_game_roop, MSEC_TO_TIMER(game_roop_speed));
 }

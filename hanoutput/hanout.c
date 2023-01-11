@@ -38,14 +38,14 @@ void al_load_buff_hanfont(unsigned char *buf)
 
 void al_load_hanfont(char *file)
 {
-	int h = open(file,O_RDONLY | O_BINARY);
+	int h = _open(file,O_RDONLY | O_BINARY);
 	if (h == -1) {
 		exit(1);
 	}
-	read(h,fist,5120);
-	read(h,mid,2816);
-	read(h,end,3584);
-	close(h);
+	_read(h,fist,5120);
+	_read(h,mid,2816);
+	_read(h,end,3584);
+	_close(h);
 }
 
 void al_load_buff_engfont(unsigned char *buf)
@@ -55,12 +55,12 @@ void al_load_buff_engfont(unsigned char *buf)
 
 void al_load_engfont(char *file)
 {
-	int h = open(file,O_RDONLY | O_BINARY);
+	int h = _open(file,O_RDONLY | O_BINARY);
 	if (h == -1) {
 		exit(1);
 	}
-	read(h,english,4096);
-	close(h);
+	_read(h,english,4096);
+	_close(h);
 }
 
 void IMG_1(unsigned char *dest, int bytes)
@@ -218,7 +218,7 @@ void pan_font(int f)
 void han_compose(BITMAP *bmp, unsigned char cho, unsigned char jung,unsigned char jong, int c,int f)
 {
 	int t1 = 0, t2=0, t3=0;
-	memset(hib.b,0,32*4);
+	memset(hib.b,0,32);
 	cho  = johab_table[0][cho];
 	jung = johab_table[1][jung];
 	jong = johab_table[2][jong];
@@ -278,7 +278,7 @@ void han_compose(BITMAP *bmp, unsigned char cho, unsigned char jung,unsigned cha
 void eng_compose(BITMAP *bmp, unsigned char keyin, int c,int f)
 {
 	pan_font(f);
-	memset(eib.b, 0, 16*4);
+	memset(eib.b, 0, 16);
 	memmove(eib.b, english[keyin], 16);
 
 	switch (__attr)
@@ -299,12 +299,11 @@ void al_han_puts(BITMAP *bmp, int x, int y, int color, int attr, char *str)
 {
 	unsigned char data1, data2;
 	unsigned char cho, jung,jong;
-	int t1,t2,t3,i;
 
 	__cur_x=x;
 	__cur_y=y;
 
-	for(i=0; i<= (int)strlen(str); i++)
+	for(int i=0; i<= (int)strlen(str); i++)
 	{
 		data1 = *(str+i);
 		if (data1 > 127) {
