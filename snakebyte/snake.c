@@ -196,7 +196,11 @@ int main(){
     install_keyboard();
 
     set_color_depth(16); //graphics
-    set_gfx_mode( GFX_AUTODETECT, MAP_WIDTH * TILE_SIZE, MAP_HEIGHT * TILE_SIZE, 0, 0);
+#if defined(_WIN32)
+    set_gfx_mode( GFX_AUTODETECT_WINDOWED, MAP_WIDTH * TILE_SIZE, MAP_HEIGHT * TILE_SIZE, 0, 0);
+#else
+    set_gfx_mode(GFX_AUTODETECT, MAP_WIDTH * TILE_SIZE, MAP_HEIGHT * TILE_SIZE, 0, 0);
+#endif
     buffer = create_bitmap( MAP_WIDTH * TILE_SIZE, MAP_HEIGHT * TILE_SIZE);
 
     install_timer();

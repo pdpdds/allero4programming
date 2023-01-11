@@ -42,7 +42,7 @@ int main(int argc, char* argv[])
 	install_int_ex(increment_speed_counter, BPS_TO_TIMER(60)); //초당 타이머 함수 호출 수(BEAT PER SECOND)
 
 	set_color_depth(16);
-	set_gfx_mode(GFX_AUTODETECT, 640, 480, 0, 0);
+	set_gfx_mode(GFX_AUTODETECT_WINDOWED, 640, 480, 0, 0);
 
 	BITMAP* buffer = create_bitmap(640, 480);
 

@@ -19,6 +19,9 @@ int main(int argc, char* argv[])
 {
 	allegro_init(); 
 	install_keyboard(); 
+	set_color_depth(16);
+	set_gfx_mode(GFX_AUTODETECT_WINDOWED, 640, 480, 0, 0);
+
 	install_timer(); //타이머 시스템을 초기화한다
 
 	LOCK_VARIABLE(g_speed_counter); 
@@ -27,8 +30,7 @@ int main(int argc, char* argv[])
 	install_int_ex(increment_speed_counter, BPS_TO_TIMER(60)); //초당 타이머 함수 호출 수(BEAT PER SECOND)
 
 	
-	set_color_depth(16); 
-	set_gfx_mode(GFX_AUTODETECT, 640, 480, 0, 0); 
+	
 
 	BITMAP* pBall;
 	pBall = load_bitmap("ball.bmp", NULL);

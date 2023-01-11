@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
 	allegro_init(); 
 	install_keyboard(); 
 	set_color_depth(16); 
-	set_gfx_mode(GFX_AUTODETECT, 640, 480, 0, 0); //화면해상도는 640 * 480
+	set_gfx_mode(GFX_AUTODETECT_WINDOWED, 640, 480, 0, 0); //화면해상도는 640 * 480
 
 	//공 이미지를 로드한다.
 	BITMAP* pBall = NULL;  
