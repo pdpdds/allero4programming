@@ -25,7 +25,6 @@ DATAFILE* stagedata;
 void GameEnd();
 
 int game_roop;
-int game_roop_switch;
 int game_roop_speed = 64;
 
 int title_hotspot[48];
@@ -328,8 +327,9 @@ void make_target_item(int x, int y, int kind);
 
 int check_cross(int xa1, int xb1, int ya1, int yb1, int xa2, int xb2, int ya2, int yb2);
 
+int game_roop_switch;
 
-void control_game_roop()
+void control_game_roop(void)
 {
 	game_roop_switch = 1;
 }
